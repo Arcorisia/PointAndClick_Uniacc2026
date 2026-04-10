@@ -9,6 +9,7 @@ public class ClickManager : MonoBehaviour
     [SerializeField] private LayerMask hitLayers = ~0; // Todo por defecto
     [SerializeField] private float maxDistance = 100f;
     [SerializeField] private bool debugDraw = true;
+    public bool blocked;
 
     public static ClickManager instance;
 
@@ -22,7 +23,7 @@ public class ClickManager : MonoBehaviour
     }
      private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !blocked)
             DoRaycast();
     }
 

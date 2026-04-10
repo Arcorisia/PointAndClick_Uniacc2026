@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 public interface IClickeable
 {
@@ -7,7 +8,7 @@ public interface IClickeable
 public class InteractuableObject : MonoBehaviour, IClickeable
 {
 
-    public string textToShow;
+    public List<string> textToShow;
     public void OnClick()
     {
         DialogueManager.instance.ShowDialogue(textToShow);
