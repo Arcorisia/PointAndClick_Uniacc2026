@@ -9,7 +9,7 @@ public interface IClickeable
 public class InteractuableObject : MonoBehaviour, IClickeable
 {
 
-    public List<string> textToShow;   
+    public List<Dialogue> textToShow;   
 
     public void OnClick()
     {

@@ -2,6 +2,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
+using UnityEngine.Events;
+[System.Serializable]
+public class Dialogue
+{
+    [TextArea(3,5)]
+    public string dialogue;
+    public UnityEvent onDialogueEvent;
+}
 
 public class DialogueManager : MonoBehaviour
 {
@@ -9,7 +17,7 @@ public class DialogueManager : MonoBehaviour
     public CanvasGroup canvasGroup;
     public TextMeshProUGUI textDialogue;
 
-    public List<string> actualDialogue;
+    public List<Dialogue> actualDialogue;
     int indexDialogue = 0;
 
     void Awake()
@@ -22,7 +30,7 @@ public class DialogueManager : MonoBehaviour
         HideDialogue();
     }
 
-    public void ShowDialogue(List<string> dialogue)
+    public void ShowDialogue(List<Dialogue> dialogue)
     {
         canvasGroup.alpha = 1;
         canvasGroup.interactable = true;
@@ -32,7 +40,8 @@ public class DialogueManager : MonoBehaviour
         actualDialogue.AddRange(dialogue);
         ClickManager.instance.blocked = true;
 
-        textDialogue.text = actualDialogue[indexDialogue];
+        textDialogue.text = actualDialogue[indexDialogue].dialogue;
+        actualDialogue[indexDialogue].onDialogueEvent?.Invoke();
     }
     public void NextDialgoue()
     {
@@ -43,7 +52,8 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            textDialogue.text = actualDialogue[indexDialogue];
+            textDialogue.text = actualDialogue[indexDialogue].dialogue;
+            actualDialogue[indexDialogue].onDialogueEvent?.Invoke();
         }
     }
     public void HideDialogue()

@@ -1,5 +1,4 @@
-using System.Runtime.InteropServices;
-using Unity.VisualScripting;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ClickManager : MonoBehaviour
@@ -61,9 +60,11 @@ public class ClickManager : MonoBehaviour
         // El objeto golpeado
         GameObject hitObject = hit.collider.gameObject;
 
-        if(hit.collider.GetComponent<IClickeable>() != null)
+        List<IClickeable> clickables = new List<IClickeable>(hit.collider.GetComponents<IClickeable>());
+
+        foreach (var clickable in clickables)
         {
-            hit.collider.GetComponent<IClickeable>().OnClick();
+            clickable.OnClick();
         }
 
         // Ejemplo: mover un marcador al punto de impacto
