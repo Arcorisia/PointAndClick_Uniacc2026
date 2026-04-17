@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72e7e3d9d7c3a914381b06736dacf2e3, type: 3}
   m_Name: Manzana
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
-  itemName: 
-  itemIcon: {fileID: 0}
-  descripction: 
+  itemName: Manzana
+  itemIcon: {fileID: 21300000, guid: 8526275af340d1a47b43db2ca1176a4f, type: 3}
+  descripction: Fruta Roja
