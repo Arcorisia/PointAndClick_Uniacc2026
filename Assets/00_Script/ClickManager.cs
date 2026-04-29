@@ -1,6 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public interface IClickeable
+{
+    void OnClick();
+}
+
 public class ClickManager : MonoBehaviour
 {
     [Header("Configuración")]

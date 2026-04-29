@@ -1,10 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
-public interface IClickeable
-{
-    public void OnClick();
-   
-}
+
 
 public class InteractuableObject : MonoBehaviour, IClickeable
 {

@@ -29,5 +29,6 @@ public class FrameSwitcherByChildren : MonoBehaviour
         {
             spriteRenderer.sprite = frames[0]; // primer frame
         }
+        
     }
 }
